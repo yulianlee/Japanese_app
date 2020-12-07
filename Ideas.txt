@@ -1,0 +1,7 @@
+Will have 2 sections
+
+1) Random Vocabulary
+2) Ask me a question!
+3) Dictation (to do with pen and paper)
+4) Name that object
+5) Whose object does that belong to?

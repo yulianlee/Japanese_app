@@ -1,0 +1,94 @@
+/* ########### FOR PAGES */
+
+/* ###### Margins and Paddings */
+.mt-5{
+  margin-top:5rem;
+}
+.mt-4{
+  margin-top:4rem;
+}
+.mt-3{
+  margin-top:3rem;
+}
+
+/* Navbar */
+.mt-logo{
+  margin-top:3vh;
+  margin-left: 5vw
+}
+
+.mt-other{
+  margin-right:2vw;
+  margin-top: 4vh
+}
+
+/* Footer */
+.mtfooter {
+  margin-top: 3vh !important;
+}
+
+main{
+  min-height: 100vh;
+}
+Feature{
+  margin:auto;
+}
+
+
+/* for fonts */
+
+.jap_text{
+  font-family: 'Chihaya Jun', 'Noto Sans JP';
+  font-size: 3rem;
+}
+
+.jap_text_body{
+  font-family: 'Chihaya Jun', 'Noto Sans JP';
+  font-size: 1.8rem;
+}
+
+@font-face {
+  font-family: 'Chihaya Jun';
+  src:url('./font.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}  
+
+.instruction-font{
+  font-size:1.3rem;
+}
+
+.link-font{
+  font-size: 1.5rem;
+  font-weight: 900;
+  color:#1089ff
+}
+
+/* ######### FOR COMPONENTS */
+
+Col{
+  display: flex;
+  align-items: center;
+}
+
+.feature_row{
+  margin-top: 10rem;
+}
+
+
+.card-img-top{
+  border-radius: rounded;
+}
+
+/* #### TIMER */
+/* Sets the containers height and width */
+
+
+
+/* For input fields */
+input{
+  width: 20rem;
+  height: 2.5rem;
+  letter-spacing: 1.5rem;
+  padding-left: 0.5rem;
+}
+
+
