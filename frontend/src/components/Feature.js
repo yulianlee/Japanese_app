@@ -1,7 +1,7 @@
 import React from 'react'
 import {Col, Card} from 'react-bootstrap';
 
-const Feature = (props) => {
+function Feature (props) {
     return (
         // <Card style={{ width: '18rem' }}>
         <Card style={{ width: '18rem'}}>

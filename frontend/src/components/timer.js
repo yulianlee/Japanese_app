@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 
-const Timer = () => {
+function Timer() {
     const [seconds, setSeconds] = useState(5);
     const [isActive, setIsActive] = useState(false);
   

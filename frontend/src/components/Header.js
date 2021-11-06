@@ -1,7 +1,7 @@
 import React from 'react'
 import {Nav, Navbar} from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-const Header = () => {
+function Header(){
     return (
     <div>
         <Navbar bg="light" expand="lg">

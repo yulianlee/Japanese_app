@@ -1,0 +1,224 @@
+COMPONENTS
+
+- React is responsible for handling the front end and handling user reactions. React works by building "components". 
+
+- Components are reusable pieces of the UI, or widgets. 
+
+For example, say that we have website that lists out hotel bookings. Components can be the different 
+thumbnails of the different rooms, but are customizable and reusable just by passing different data to it.
+
+For an app, we can break it down like so;
+
+    App Component 
+        Nav Bar component 
+        To Do List component 
+            ListItem component 
+
+How it would like in HTML, 
+
+    <body>
+        <Component1>
+        <Component2>
+        <Component3>
+    </body>
+-----------------------------------------------------------------------------------------------------------
+
+IMPORTING DEPENDENCIES
+
+- To import dependencies, we use the "import" keyword or the "require" keyword
+
+  var React = require("react");
+  OR 
+  import ReactDOM from "react-dom";
+
+- To import multiple dependencies, we use {} to wrap the functions we want to import 
+  
+  import {Nav, Navbar} from 'react-bootstrap';
+-----------------------------------------------------------------------------------------------------------
+
+REACTDOM.RENDER
+
+- Takes in three inputs.
+
+    ReactDOM.render(What to show, Location, Optional callback to tell us when render has completed)
+
+    - Location = Particular HTML element on our page. We use the DOM to specify which HTML element 
+    - What to show = HTML element we want to render 
+
+- Example Code 
+
+  In index.js, 
+
+    import ReactDOM from "react-dom";
+
+    var React = require("react");
+
+    ReactDOM.render(<h1> Hello World </h1>, document.getElementById("root"));
+
+  In index.HTML
+    
+    <div id="root"></div>
+
+-----------------------------------------------------------------------------------------------------------
+
+PASSING IN JS VARIABLES TO HTML ELEMENTS
+
+- We use curly braces to wrap variable names 
+
+    const name = "Angela"
+
+    ReactDOM.render(<h1> Hello {name} </h1>, document.getElementById("root"))
+
+-----------------------------------------------------------------------------------------------------------
+
+STRING FORMATTING 
+
+- We can pass variables into strings by using the `${var_name}` syntax 
+
+  var fName = "Angela" 
+  var lName = "Yu"
+
+  ReactDOM.render(<h1> Hello {`${fName} ${lName}`} </h1>, document.getElementById("root"))
+
+-----------------------------------------------------------------------------------------------------------
+
+ADDING CSS TO HTML ELEMENTS 
+
+- We can specify our own CSS class and then specify the "className" attribute in the HTML 
+  we pass. 
+  
+  In index.js
+    ReactDOM.render(<h1 className="heading"> Hello </h1>, document.getElementById("root"))  
+
+  In styles.css
+    .heading{
+        color:red;
+    }
+
+INLINE STYLING
+
+- We can specify inline CSS styling by passing in a map of style properties to the style attribute
+
+    ReactDOM.render(<h1 style = {{color:"red"}}> Hello </h1>, document.getElementById("root"))  
+
+-----------------------------------------------------------------------------------------------------------
+
+CREATING COMPONENTS 
+
+- To create components, we write function that returns custom HTML that we can call in our 
+  .render method. 
+
+    function HeadingComponent(){
+        return <h1> My Favourite Foods </h1>
+    }
+
+    ReactDOM.render(<HeadingComponent></HeadingComponent>, document.getElementById("root"))  
+    OR 
+    ReactDOM.render(<HeadingComponent />, document.getElementById("root"))  
+
+- To import components from other files, we use the ES6 import and export functionality. 
+
+  In HEADING.JSX
+
+    import React from "react";  //So we can write JSX code
+
+    function HeadingComponent(){
+        return <h1> My Favourite Foods </h1>
+    }
+
+    export default HeadingComponent;
+
+  In index.js
+    
+    import HeadingComponent from "./Heading.jsx"
+    ...
+    ReactDOM.render(<HeadingComponent />, document.getElementById("root")) 
+    
+-----------------------------------------------------------------------------------------------------------
+
+SETTING UP REACT PROJECT LOCALLY 
+
+1 - Install Node
+2 - Install VSCode, and install the VsCode Icons, babel extensions 
+3 - Run "npx create-react-app app_name" from Desktop
+
+For npm commands, we can use 
+  npm start - to start the dev server
+  npm run build - Bundles the app into a static file for production
+  npm test - Start the test runner 
+
+-----------------------------------------------------------------------------------------------------------
+
+REACT PROPS/ CUSTOM PROPERTIES FOR OUR CUSTOM REACT COMPONENT 
+
+- In order to create custom "attributes" for our react components, we can pass in an arg
+  to our function. 
+
+- We can then pass in custom attributes to our HTML element in ReactDOM.render() in order to 
+  access them in our function.
+
+    function Card(props){
+      // We access the .name property passed from the HTML
+      return <img src = {props.name} />
+    }
+
+    ReactDOM.render(<Card name="custom_name"/>, document.getElementById("root"))
+
+-----------------------------------------------------------------------------------------------------------
+
+USING MAPS FOR PASSING DATA
+
+- We use the JavaScript array.map(function) to apply a function to each item in the array
+
+- When we need to create multiple, repeated components with custom data, we can use 
+  maps to pass in the data instead of repeating the components non-stop. 
+
+  For example, instead of calling a custom component like 
+  <Card img = {props.img}/>
+  <Card img = {props.img}/>
+  <Card img = {props.img}/>
+
+  We can instead do the following: 
+
+    const contacts =[
+      {
+        id:1,
+        name:"Beyonce",
+        img_url: ...,
+      },
+      {
+        id:2,
+        name:"Jack",
+        img_url:...
+      }
+    ]
+
+    function CreateCard(contact){
+      return <Card key = {contact.id} name={contact.name} />
+    }
+
+    function App(){
+      return (
+        <div>
+          {contacts.map(CreateCard)} // .map Calls the CreateCard function for every item in the array
+        </div>
+      )
+    }
+
+-----------------------------------------------------------------------------------------------------------
+
+JS TERNARY OPERATOR - SINGLE LINE IF ELSE
+
+- CONDITION ? DO IF TRUE ? DO IF FALSE
+
+  isCloudy === True ? bringUmbrella() : bringsunScreen()
+
+-----------------------------------------------------------------------------------------------------------
+
+REACT STATES
+
+- UI = f(State) - The user interface is a function of the state of your app. 
+
+- React hooks are what allow our website to handle and respond to user interaction. 
+
+
